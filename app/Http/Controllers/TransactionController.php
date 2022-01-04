@@ -23,13 +23,13 @@ class TransactionController extends Controller
         $transaction->id = $id;
         $transaction->user_id = $user->id;
         $transaction->product_id = $product->id;
-        $transaction->ordered_on = Carbon::now();
+        $transaction->ordered_on = now();
         $transaction->save();
 
         Notification::send($user, new InvoicePaidNotification());
 
         ExpiredStatus::dispatch($id)
-            ->delay(now()->addMinutes(1));
+            ->delay(now()->addMinutes(3));
 
         return response()->json([
             'message' => 'oke'

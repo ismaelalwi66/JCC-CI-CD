@@ -17,6 +17,10 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('name');
             $table->integer('price');
+            $table->string('original_image');
+            $table->string('original_image_url');
+            $table->string('large_image');
+            $table->string('large_image_url');
         });
     }
 
