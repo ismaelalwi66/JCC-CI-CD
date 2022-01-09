@@ -63,7 +63,7 @@ class ProductController extends Controller
 
         ]);
 
-
+        return response(['data' => []]);
         // return Storage::url($request->file);
 
         // $path = $request->image->store('images/', 's3');

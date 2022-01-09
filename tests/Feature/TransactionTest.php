@@ -6,18 +6,16 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class ProductTest extends TestCase
+class TransactionTest extends TestCase
 {
     /**
      * A basic feature test example.
      *
      * @return void
      */
-    // /** @test */
-    public function test_login()
+    public function test_route_transaction()
     {
-        $response = $this->withoutExceptionHandling();
-        $response = $this->get('/');
+        $response = $this->getJson('api/transaction/history/{id}');
 
         $response->assertStatus(200);
     }

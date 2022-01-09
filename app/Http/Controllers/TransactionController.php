@@ -13,7 +13,11 @@ use Illuminate\Support\Facades\Notification;
 
 class TransactionController extends Controller
 {
-    public function checkout(Request $request)
+    public function show()
+    {
+    }
+
+    public function store(Request $request)
     {
         $user = User::where('email', $request->email)->first();
         $product = Product::where('name', $request->product)->first();
@@ -33,6 +37,6 @@ class TransactionController extends Controller
 
         return response()->json([
             'message' => 'oke'
-        ]);
+        ], 200);
     }
 }

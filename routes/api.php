@@ -20,5 +20,6 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::post('checkout', [TransactionController::class, 'checkout']);
-Route::post('store', [ProductController::class, 'store']);
+Route::post('transaction/checkout', [TransactionController::class, 'checkout']);
+Route::get('transaction/history/{id}', [TransactionController::class, 'show']);
+Route::post('product', [ProductController::class, 'store']);
